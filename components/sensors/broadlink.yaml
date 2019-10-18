@@ -1,0 +1,3 @@
+platform: broadlink
+host: 192.168.1.125
+mac: 'c8:f7:42:83:54:49'

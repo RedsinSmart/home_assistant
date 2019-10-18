@@ -1,0 +1,162 @@
+title: System
+icon: mdi:lan
+panel: true
+cards:
+  - type: custom:layout-card
+    layout: vertical
+    #max_width: [20%, 50%, 30%]
+    column_num: 4
+    cards:
+       - type: entities
+         title: Info
+         show_header_toggle: false
+         #column_width: calc(100% / n)
+         #columns: 6
+         entities:
+            - entity: sensor.time_date
+            - entity: sensor.last_boot
+              name: Last system boot
+       - type: entities
+         #title: Pi Status
+         icon: mdi:home
+         show_header_toggle: false
+         #column_width: calc(100% / n)
+         #columns: 6
+         entities:
+            - sensor.processor_use
+            - sensor.memory_free
+            - sensor.disk_use_percent_home
+            - sensor.rpi_power_status
+       - type: entities
+         style: |
+           ha-card {
+             font-variant: small-caps;
+           }
+           .card-header {
+             font-size: 16px;
+           }
+         #title: Pi Status
+         icon: mdi:home
+         show_header_toggle: false
+         #column_width: calc(100% / n)
+         #columns: 6
+         entities:
+            - sensor.ipv4_address_eth0
+            - sensor.network_throughput_in_eth0
+            - sensor.network_throughput_out_eth0
+       - break
+       - type: entities
+         title: Info
+         show_header_toggle: false
+         #column_width: calc(100% / n)
+         #columns: 6
+         entities:
+            - sensor.ha_installed_version
+            - sensor.ha_current_version
+            - entity: sensor.hacs
+              name: HACS
+       - type: entities
+         title: HA Network
+         show_header_toggle: false
+         #column_width: calc(100% / n)
+         #columns: 6
+         entities:
+            - binary_sensor.swk_rfbridge
+       - type: entities
+         title: HA Devices
+         show_header_toggle: false
+         #column_width: calc(100% / n)
+         #columns: 6
+         entities:
+            - binary_sensor.swk_rfbridge
+       - type: entities
+         title: HA Batteries
+         show_header_toggle: false
+         #column_width: calc(100% / n)
+         #columns: 6
+         entities:
+            - sensor.window_door_sensor_battery_level
+            #- sensor.tradfri_motion_sensor_battery_level
+            - sensor.tradfri_wireless_dimmer_battery_level_2
+       - break
+       ##################
+       ##################
+       
+       ##################
+       ##################
+       
+       - cards:
+         - entities:
+              - binary_sensor.unifi_ckg2
+           image: /local/ckg2.png
+           #title: UniFi CKGen2+
+           type: picture-glance
+         - entities:
+              - binary_sensor.unifi_usg
+           image: /local/USG.png
+           #title: UniFi USG
+           type: picture-glance
+         - entities:
+              - binary_sensor.unifi_16swt
+           image: /local/16.png
+           #title: UniFi 16SWT
+           type: picture-glance
+         type: horizontal-stack
+       - cards:
+         - entities:
+              - binary_sensor.unifi_ap_up
+           image: /local/ap.png
+           #title: UniFi APs
+           type: picture-glance
+         - entities:
+              - binary_sensor.unifi_ap_down
+           image: /local/ap.png
+           #title: UniFi APs
+           type: picture-glance
+         - entities:
+              - binary_sensor.unifi_ap_iw
+           image: /local/ap.png
+           #title: UniFi APs
+           type: picture-glance
+         type: horizontal-stack
+       - cards:
+         - entities:
+              - binary_sensor.unifi_uvc_g3_1
+           image: /local/uvcg3pro.png
+           #title: UniFi APs
+           type: picture-glance
+         - entities:
+              - binary_sensor.unifi_uvc_g3_2
+           image: /local/uvcg3pro.png
+           #title: UniFi APs
+           type: picture-glance
+         - entities:
+              - binary_sensor.unifi_uvc_g3_3
+           image: /local/uvcflex.png
+           #title: UniFi APs
+           type: picture-glance
+         type: horizontal-stack
+         
+         
+       - break
+       - type: custom:layout-card
+         layout: vertical
+         #max_width: [20%, 50%, 30%]
+         column_num: 3
+         cards:
+
+       - type: entities
+         title: Transmission Status
+         show_header_toggle: false
+         #column_width: calc(100% / n)
+         #columns: 6
+         entities:
+              - sensor.transmission_started_torrents
+              - sensor.transmission_active_torrents
+              - sensor.transmission_completed_torrents
+              - sensor.transmission_status
+              - sensor.transmission_paused_torrents
+              - sensor.transmission_down_speed
+              - sensor.transmission_total_torrents
+              - sensor.transmission_up_speed
+   

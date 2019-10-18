@@ -1,0 +1,212 @@
+title: My view
+icon: mdi:test-tube
+panel: true
+cards:
+  - type: custom:layout-card
+    layout: vertical
+    #max_width: [40%, 300px, 20%]
+    column_num: 3
+    cards:
+    ### Ground ###
+          - type: custom:banner-card
+            title: Hallway
+            background: "#4c6085"
+            heading: "\U0001F6AA Hallway"
+            row_size: 2
+            entities:
+              - device_tracker.nest
+              - switch.front_door_lamp
+          - type: custom:banner-card
+            title: Snug
+            background: "#7086ad"
+            heading: "\U0001F6CB Snug"
+            row_size: 2
+            entities:
+              - device_tracker.chromecast
+              - binary_sensor.openclose_3
+          - type: custom:banner-card
+            title: Kitchen
+            background: "#6078a4"
+            heading: "\U0001F374 Kitchen"
+            row_size: 2
+            entities:
+              - camera.uvc_g3_back_2
+              - binary_sensor.openclose_3
+          - type: custom:banner-card
+            title: Garage
+            background: "#556c95"
+            heading: "\U0001F9F0 Garage"
+            row_size: 2
+            entities:
+              - binary_sensor.dell_t330
+              - binary_sensor.openclose_3
+          - type: custom:banner-card
+            title: Outside
+            background: "#435475"
+            heading: "\U0001F3E0 Outside"
+            row_size: 2
+            entities:
+              - entity: binary_sensor.pir_sensor
+                name: Garage PIR
+                attribute: "temperature"
+
+          ### First Floor ###
+          - break
+          - type: custom:banner-card
+            background: "#00537a"
+            heading: "\U0001F68C Buses"
+            row_size: 2
+            entities:
+              - sensor.next_bus_to_nottingham
+              - sensor.next_bus_route
+              - sensor.next_bus_estimated
+              - sensor.next_bus_scheduled
+          - type: custom:banner-card
+            background: "#00537a"
+            heading: "\U0001F697 Car"
+            row_size: 3
+            entities:
+              - sensor.work1
+              - sensor.work2
+              - sensor.home
+#
+          - type: custom:swipe-card
+            cards:
+              - entity: camera.uvc_g3_front
+                type: picture-entity
+                camera_view: live
+                show_state: false
+                show_name: false
+              - entity: camera.uvc_g3_back
+                type: picture-entity
+                camera_view: live
+                show_state: false
+                show_name: false
+              - entity: camera.uvc_g3_back_2
+                type: picture-entity
+                camera_view: live
+                show_state: false
+                show_name: false
+              - entity: camera.garage
+                type: picture-entity
+                camera_view: live
+                show_state: false
+                show_name: false
+          - type: custom:banner-card
+            background: "#1768ac"
+            heading: "\U0001F6CB Living room"
+            row_size: 2
+            entities:
+               - device_tracker.playstation
+               - device_tracker.googlehomemini
+               - switch.tv_hitachi_source
+               - binary_sensor.swk_dvbpi01
+
+
+          - break
+          ### Top Floor ##
+          - type: custom:banner-card
+            background: "#3c6997"
+            heading: "\U0001F6CB Master Bedroom"
+            row_size: 2
+            entities:
+               - device_tracker.playstation
+               - device_tracker.googlehomemini
+               - binary_sensor.swk_vm_plexsrv01
+               - binary_sensor.swk_dvbpi01
+          - entity: media_player.playstation_4
+            type: custom:mini-media-player
+            background: /local/ps444.png
+            source: icon
+            hide:
+             volume: true
+             name: true
+             progress: true
+             controls: true
+            shortcuts:
+             columns: 4 # Max buttons per row
+             buttons:
+               - icon: mdi:playstation
+                 type: script
+                 id: script.ps4button
+               - icon: mdi:menu
+                 type: script
+                 id: script.ps4option
+               - icon: mdi:keyboard-return
+                 type: script
+                 id: script.ps4enter
+               - icon: mdi:keyboard-backspace
+                 type: script
+                 id: script.ps4back
+               - icon: mdi:chevron-left
+                 type: script
+                 id: script.ps4left
+               - icon: mdi:chevron-up
+                 type: script
+                 id: script.ps4up
+               - icon: mdi:chevron-down
+                 type: script
+                 id: script.ps4down
+               - icon: mdi:chevron-right
+                 type: script
+                 id: script.ps4right
+          - type: entities
+            title: Guest Bedroom
+            entities:
+               - binary_sensor.openclose_3
+          - entity: media_player.playstation_4
+            type: custom:mini-media-player
+            #source: icon
+            hide:
+             volume: true
+             name: true
+             progress: true
+             controls: true
+            shortcuts:
+             columns: 4 # Max buttons per row
+             buttons:
+               - icon: mdi:ungroup
+                 type: script
+                 id: script.tv_hit_source
+               - icon: mdi:menu
+                 type: script
+                 id: script.tv_hit_menu
+               - icon: mdi:netflix
+                 type: script
+                 id: script.tv_hit_netflix
+               - icon: mdi:keyboard-backspace
+                 type: script
+                 id: script.tv_hit_back
+               - icon: mdi:chevron-left
+                 type: script
+                 id: script.tv_hit_keyleft
+               - icon: mdi:chevron-up
+                 type: script
+                 id: script.tv_hit_keyup
+               - icon: mdi:chevron-down
+                 type: script
+                 id: script.tv_hit_keydown
+               - icon: mdi:chevron-right
+                 type: script
+                 id: script.tv_hit_keyright
+               - icon: mdi:keyboard-return
+                 type: script
+                 id: script.tv_hit_ok
+               - icon: mdi:exit-to-app
+                 type: script
+                 id: script.tv_hit_exit
+               - icon: mdi:power
+                 type: script
+                 id: script.tv_hit_power
+               - icon: mdi:subtitles
+                 type: script
+                 id: script.tv_hit_subtitles
+               - icon: mdi:infomation-outline
+                 type: script
+                 id: script.tv_hit_info
+               - icon: mdi:volume-plus
+                 type: script
+                 id: script.tv_hit_volup
+               - icon: mdi:volume-minus
+                 type: script
+                 id: script.tv_hit_voldown                 

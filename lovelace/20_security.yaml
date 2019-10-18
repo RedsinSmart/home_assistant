@@ -1,0 +1,77 @@
+title: Security
+icon: mdi:shield
+cards:
+      - cards:
+          - entities:
+              - binary_sensor.unifi_usg
+            image: /local/USG.png
+            title: UniFi USG
+            type: picture-glance
+          - entities:
+              - binary_sensor.unifi_16swt
+            image: /local/16.png
+            title: UniFi 16SWT
+            type: picture-glance
+          - entities:
+              - binary_sensor.unifi_ckg2
+            image: /local/ckg2.png
+            title: UniFi CKGen2+
+            type: picture-glance
+        type: horizontal-stack
+      - cards:
+          - entities:
+              - binary_sensor.unifi_uvc_g3_1
+            image: /local/uvcg3pro.png
+            title: UniFi UVC-G3 1
+            type: picture-glance
+          - entities:
+              - binary_sensor.unifi_uvc_g3_2
+            image: /local/uvcg3pro.png
+            title: UniFi UVC-G3 2
+            type: picture-glance
+          - entities:
+              - binary_sensor.unifi_uvc_g3_3
+            image: /local/uvcflex.png
+            title: UniFi UVC-G3 3
+            type: picture-glance
+        type: horizontal-stack
+      - cards:
+          - entities:
+              - binary_sensor.unifi_ap_up
+            image: /local/ap.png
+            title: UniFi AP Up
+            type: picture-glance
+          - entities:
+              - binary_sensor.unifi_ap_down
+            image: /local/ap.png
+            title: UniFi AP Down
+            type: picture-glance
+          - entities:
+              - binary_sensor.unifi_ap_iw
+            image: /local/apiw.png
+            title: UniFi AP IW
+            type: picture-glance
+        type: horizontal-stack
+
+      - cards:
+          - entities:
+              - binary_sensor.dell_t330
+            image: /local/dell.png
+            title: Dell T330
+            type: picture-glance
+          - entities:
+              - binary_sensor.esxi_host
+            image: /local/esxi.png
+            title: ESXi Host
+            type: picture-glance
+          - entities:
+              - binary_sensor.swk_vm_plex
+            image: /local/plex.png
+            title: SWK-VM-Plex
+            type: picture-glance
+          - entities:
+              - binary_sensor.swk_vm_web
+            image: /local/nginx.png
+            title: SWK-VM-WebSRV
+            type: picture-glance
+        type: vertical-stack

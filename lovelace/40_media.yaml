@@ -1,0 +1,100 @@
+title: Media
+icon: mdi:speaker
+panel: true
+cards:
+  - type: custom:layout-card
+    layout: vertical
+    #max_width: [20%, 50%, 30%]
+    column_num: 3
+    cards:
+     ### Ground ###
+       - type: custom:upcoming-media-card
+         title: TV Upcoming
+         entity: sensor.sonarr_upcoming_media
+       - type: custom:upcoming-media-card
+         title: Films Upcoming
+         entity: sensor.radarr_upcoming_media
+       - type: custom:upcoming-media-card
+         title: Recently Added
+         entity: sensor.plex_recently_added
+       - break
+##############
+#
+#
+#
+#######################
+       - type: glance
+         title: Network Status
+         column_width: calc(100% / n)
+         entities:
+              - sensor.transmission_started_torrents
+              - sensor.plex
+              - sensor.transmission_active_torrents
+              - sensor.transmission_completed_torrents
+              - sensor.transmission_status
+              - sensor.transmission_paused_torrents
+              - sensor.transmission_down_speed
+              - sensor.transmission_total_torrents
+              - sensor.transmission_up_speed
+              - binary_sensor.swk_vm_plexsrv01
+              - binary_sensor.swk_dvbpi01
+       - type: shopping-list
+         title: Shopping List
+       - break
+##############
+#
+#
+#
+#######################
+
+       - cards:
+         - entities:
+              - binary_sensor.unifi_ckg2
+           image: /local/ckg2.png
+           #title: UniFi CKGen2+
+           type: picture-glance
+         - entities:
+              - binary_sensor.unifi_usg
+           image: /local/USG.png
+           #title: UniFi USG
+           type: picture-glance
+         - entities:
+              - binary_sensor.unifi_16swt
+           image: /local/16.png
+           #title: UniFi 16SWT
+           type: picture-glance
+         type: horizontal-stack
+       - cards:
+         - entities:
+              - binary_sensor.unifi_ap_up
+           image: /local/ap.png
+           #title: UniFi APs
+           type: picture-glance
+         - entities:
+              - binary_sensor.unifi_ap_down
+           image: /local/ap.png
+           #title: UniFi APs
+           type: picture-glance
+         - entities:
+              - binary_sensor.unifi_ap_iw
+           image: /local/ap.png
+           #title: UniFi APs
+           type: picture-glance
+         type: horizontal-stack
+       - cards:
+         - entities:
+              - binary_sensor.unifi_uvc_g3_1
+           image: /local/uvcg3pro.png
+           #title: UniFi APs
+           type: picture-glance
+         - entities:
+              - binary_sensor.unifi_uvc_g3_2
+           image: /local/uvcg3pro.png
+           #title: UniFi APs
+           type: picture-glance
+         - entities:
+              - binary_sensor.unifi_uvc_g3_3
+           image: /local/uvcflex.png
+           #title: UniFi APs
+           type: picture-glance
+         type: horizontal-stack

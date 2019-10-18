@@ -1,0 +1,10 @@
+alias: Bedside 5secs
+trigger:
+  platform: state
+  entity_id: binary_sensor.pir_sensor_5
+  to: 'off'
+  for:
+   seconds: 5
+action:
+  service: homeassistant.turn_off
+  entity_id: light.cabinet_led_3

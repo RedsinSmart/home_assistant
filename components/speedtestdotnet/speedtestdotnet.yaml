@@ -1,0 +1,8 @@
+platform: speedtestdotnet
+name: SpeedTest
+server_id: 3698
+scan_interval:30
+monitored_conditions:
+    - ping
+    - download
+    - upload

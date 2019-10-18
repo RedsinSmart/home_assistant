@@ -1,0 +1,78 @@
+title: Security
+icon: mdi:server
+cards:
+ - type: glance
+   title: Glance card sample
+   show_last_changed: true
+   entities:
+    - binary_sensor.openclose_3
+    - binary_sensor.dell_t330
+ - type: glance
+   title: Motion
+   entities: 
+    - binary_sensor.tradfri_motion_sensor
+ - type: horizontal-stack
+   cards:
+      - type: entity-button
+        tap_action: call-service
+        entity: script.restart_home_assistant
+        service: homeassistant.restart
+        icon: mdi:restart
+        color: auto
+        name: Restart Hass
+ - type: horizontal-stack
+   cards:
+    ### https://github.com/nervetattoo/banner-card
+      - type: custom:banner-card
+        background: "#13274A"
+        heading: "\U0001F6CB Living room"
+        row_size: 2
+        entities:
+          - device_tracker.playstation
+          - device_tracker.googlehomemini
+          - binary_sensor.swk_vm_plexsrv01
+          - binary_sensor.swk_dvbpi01
+       
+      - type: custom:atomic-calendar
+        title: Calendar
+        enableModeChange: true
+        defaultMode: 2
+        CalEventIcon1Filter: birthday
+        CalEventIcon2Filter: waste,bills
+        entities:
+          - entity: !secret emailcal
+            type: icon1,icon2
+ - type: horizontal-stack
+   cards:
+      - type: custom:atomic-calendar   
+        title: Calendar
+        enableModeChange: true
+        defaultMode: 2
+        CalEventIcon1Filter: birthday
+        CalEventIcon2Filter: waste,bills
+        entities:
+          - entity: !secret emailcal
+            type: icon1,icon2
+        fullDayEventText: 'All day'
+        untilText: 'Until'
+        showColors: true
+        maxDaysToShow: 7
+        showLocation: true
+        showMonth: false
+        showCurrentEventLine: false
+        dateColor: black
+        dateSize: 90
+        timeColor: blue
+        timeSize: 90
+        titleColor: black
+        titleSize: 100
+        locationIconColor: 'rgb(230, 124, 115)'
+        locationLinkColor: black
+        locationTextSize: 90
+        dimFinishedEvents: true
+        finishedEventOpacity: 0.6
+        finishedEventFilter: 'grayscale(100%)'
+        dayWrapperLineColor: black
+        eventBarColor: blue
+        showProgressBar: true
+        progressBarColor: blue

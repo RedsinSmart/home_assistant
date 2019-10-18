@@ -1,0 +1,4 @@
+system_group:
+  name: System
+  entities:
+    - script.restart_home_assistant

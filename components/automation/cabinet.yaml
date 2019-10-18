@@ -1,0 +1,9 @@
+alias: Bedside motion
+initial_state: 'on'
+trigger:
+  platform: state
+  entity_id: binary_sensor.pir_sensor_5
+  to: 'on'
+action:
+  service: light.turn_on
+  entity_id: light.cabinet_led_3

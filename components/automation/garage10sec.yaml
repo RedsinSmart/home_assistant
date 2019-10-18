@@ -1,0 +1,10 @@
+alias: Garage motion 10secs
+trigger:
+  platform: state
+  entity_id: binary_sensor.openclose_3
+  to: 'off'
+  for:
+   seconds: 10
+action:
+  service: homeassistant.turn_off
+  entity_id: light.fastled_ws2811_light
