@@ -112,7 +112,7 @@ cards:
          CalEventIcon1Filter: birthday
          CalEventIcon2Filter: waste,bills
          entities:
-           - entity: samandnabz_gmail_com
+           - entity: #
              type: icon1,icon2
        - break
        - cards:
