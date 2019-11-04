@@ -1,74 +1,1073 @@
 title: Sensors
 icon: mdi:lightbulb-outline
-badges:
-      - binary_sensor.updater
-      - person.swakes
-      - sensor.network_out_eth0
-      - sensor.network_in_eth0
-      - sensor.ipv4_address_eth0
-      - sensor.disk_use_percent_home
-      - sensor.memory_free
-      - sensor.processor_use
-      - sensor.daylight
-      - sensor.transmission_started_torrents
-      - sensor.plex
-      - sensor.transmission_active_torrents
-      - sensor.transmission_completed_torrents
-      - sensor.transmission_status
-      - sensor.transmission_paused_torrents
-      - sensor.transmission_down_speed
-      - sensor.transmission_total_torrents
-      - sensor.transmission_up_speed
-      - sensor.unifi_gateway_3_packets_sent
-      - sensor.unifi_gateway_3_kbyte_sec_received
-      - sensor.unifi_gateway_3_packets_sec_sent
-      - sensor.unifi_gateway_3_packets_sec_received
-      - sensor.unifi_gateway_3_packets_received
-      - sensor.unifi_gateway_3_kbyte_sec_sent
-      - sensor.unifi_gateway_3_bytes_sent
-      - sensor.unifi_gateway_3_bytes_received
-      - sun.sun
 cards:
- - type: custom:swipe-card
-   cards: 
-      - entity: sensor.speedtest_download
-        type: sensor
-        name: Download
-      - entity: sensor.speedtest_upload
-        type: sensor
-        name: Upload
-      - entity: sensor.speedtest_ping
-        type: sensor
-        name: Ping
- - type: light
-   entity: light.cabinet_led_3
- - type: light
-   entity: light.fastled_ws2811_light
 
- - type: glance
-   title: Buses
-   entities:
-         - sensor.next_bus_scheduled
-         - sensor.next_bus_estimated
-         - sensor.next_bus_route
-         - sensor.next_bus_direction
- - type: custom:flex-table-card
-   sort_by: sort
-   max_rows: 6
-   entities:
-      include: sensor.next_bus_to_victoria_centre_stop_t3
-   columns:
-      - name: Time
-        attr_as_list: next_buses
-        modify: x.scheduled
-      - name: Est
-        attr_as_list: next_buses
-        modify: x.estimated
-        id: sort
-      - name: Route
-        attr_as_list: next_buses
-        modify: x.route
-        align: center
-      - name: Destination
-        attr_as_list: next_buses
-        modify: x.direction
+
+#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+##############################  
+#*#*#*#*#*#*#*#*#*#*#*#*  
+##################           *** First Column ***
+#*#*#*#*#*#*#*#*#*#*#*#*
+##############################
+#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+
+
+      - type: vertical-stack
+        cards:
+            - type: horizontal-stack
+              cards:
+                - type: vertical-stack
+                  cards:          
+                   - type: "custom:button-card"
+                     color_type: label-card
+                     color: rgb(16, 41, 74)
+                     name: Hallway
+                     styles:
+                      #card:
+                         #- height: 20px
+                      name:
+                        # - font-weight: bold
+                        - font-size: 16px
+                        - letter-spacing: 0.02em
+                        - justify-self: center
+                        - padding-left: 10px
+                        #- text-transform: uppercase
+                   - type: "custom:button-card"
+                     entity: switch.relay
+                     name: Front Door Lamp
+                     styles:
+                       name:
+                        # - font-weight: bold
+                        - font-size: 14px
+                        - letter-spacing: 0.01em
+                        - padding-bottom: 10px                          
+                        #- text-transform: uppercase                   
+                     color_type: card
+                     color: rgb(76, 86, 106)
+                     entity_picture: /local/we.png
+                     show_entity_picture: true
+                - type: vertical-stack
+                  cards:          
+                   - type: "custom:button-card"
+                     color_type: label-card
+                     color: rgb(16, 41, 74)
+                     name: Snug
+                     styles:
+                    #   card:
+                    #     - height: 20px
+                      name:
+                        # - font-weight: bold
+                        - font-size: 16px
+                        - letter-spacing: 0.02em
+                        - justify-self: center
+                        - padding-left: 10px
+                        #- text-transform: uppercase             
+                   - type: "custom:button-card"
+                     entity: switch.relay
+                     name: Floor Lamp
+                     styles:
+                       name:
+                        # - font-weight: bold
+                        - font-size: 14px
+                        - letter-spacing: 0.01em
+                        - padding-bottom: 10px                        
+                        #- text-transform: uppercase                   
+                     color_type: card
+                     color: rgb(76, 86, 106)
+                     entity_picture: /local/aespp.png
+                     show_entity_picture: true
+            # - type: vertical-stack
+            #   cards:                     
+    
+                   # - text-transform: uppercase  
+            #   - type: entities
+            #   #title: Entities card sample
+            #     show_header_toggle: false
+            #     icon: /local/wemoicon.png
+            #     entities:
+            #       - entity: light.fastled_ws2811_light_3
+            #         name: Lamp    
+            - type: vertical-stack
+              cards:    
+        ################
+        ## Title Card ##
+        ################
+    
+             #  - type: entities
+             #    #title: Entities card sample
+             #    show_header_toggle: false
+             #    entities:
+             #     - entity: light.fastled_ws2811_light_3
+             #        name: Front Door Lamp
+        ################
+        ## Title Card ##
+        ################                
+             #  - type: "custom:button-card"
+             #    color_type: label-card
+             #    color: rgb(16, 41, 74)
+             #    name: Snug
+             #    styles:
+             #     card:
+             #        - height: 20px
+             #     name:
+             #        # - font-weight: bold
+             #        - font-size: 15px
+             #        - letter-spacing: 0.01em
+             #        - justify-self: start
+             #        - padding-left: 10px
+             #        # - text-transform: uppercase                
+             #  - type: entities
+             #    #title: Entities card sample
+             #    show_header_toggle: false
+             #    entities:
+             #     - entity: light.fastled_ws2811_light_3
+             #        name: Floor Lamp      
+        ################
+        ## Title Card ##
+        ################                
+              - type: "custom:button-card"
+                color_type: label-card
+                color: rgb(16, 41, 74)
+                name: Kitchen
+                styles:
+                    #   card:
+                    #     - height: 20px
+                 name:
+                  # - font-weight: bold
+                  - font-size: 16px
+                  - letter-spacing: 0.02em
+                  - justify-self: center
+                  - padding-left: 10px
+                  #- text-transform: uppercase
+              - type: entities
+                #title: Entities card sample
+                show_header_toggle: false
+                entities:
+                   - entity: light.fastled_ws2811_light_3
+                     name: Ceiling Lights 
+                   - type: 'custom:rgb-light-card'
+                     entity: light.fastled_ws2811_light_3
+                     justify: center
+                     size: 25                         
+                     colors:
+                        # Any option of the light.turn_on service can be used in each color
+                        - rgb_color:
+                              - 16
+                              - 41
+                              - 74
+                          brightness: 220
+                          transition: 1
+                          icon_color: rgb(16, 41, 74)
+                        - rgb_color:
+                              - 255
+                              - 255
+                              - 255
+                          brightness: 220
+                          transition: 1
+                          icon_color: rgb(255, 255, 255)    
+                        - rgb_color:
+                              - 68
+                              - 142
+                              - 87
+                          brightness: 220
+                          transition: 1
+                          icon_color: rgb(68, 142, 87) 
+                   - entity: light.fastled_ws2811_light_3
+                     name: Table Lights                   
+              - type: entities
+                entities:
+                 # Displays the Table LightsIt's optional
+                   - entity: light.fastled_ws2811_light_3
+                     name: Floor RGB
+                   - type: 'custom:rgb-light-card'
+                     entity: light.fastled_ws2811_light_3
+                     justify: center
+                     size: 28                     
+                     colors:
+                       # Any option of the light.turn_on service can be used in each color
+                       - rgb_color:
+                             - 255
+                             - 127
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: white         
+                       - rgb_color:
+                             - 255
+                             - 127
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: center/100% url('/local/flame.png')
+                       - rgb_color:
+                             - 255
+                             - 127
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: center/120% url('/local/morning.png')          
+                       - rgb_color:
+                             - 255
+                             - 127
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: center/120% url('/local/evening.png')
+                       - rgb_color:
+                             - 255
+                             - 255
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: center/120% url('/local/night.png')                      
+                   - entity: light.fastled_ws2811_light_3
+                     name: Cabinets RGB
+                   - type: 'custom:rgb-light-card'
+                     entity: light.fastled_ws2811_light_3
+                     justify: center
+                     size: 28                     
+                     colors:
+                       # Any option of the light.turn_on service can be used in each color
+                       - rgb_color:
+                             - 255
+                             - 127
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: white         
+                       - rgb_color:
+                             - 255
+                             - 127
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: center/100% url('/local/flame.png')
+                       - rgb_color:
+                             - 255
+                             - 127
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: center/120% url('/local/morning.png')          
+                       - rgb_color:
+                             - 255
+                             - 127
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: center/120% url('/local/evening.png')
+                       - rgb_color:
+                             - 255
+                             - 255
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: center/120% url('/local/night.png')                
+                   - entity: light.fastled_ws2811_light_3
+                     name: Ceiling RGB                  
+                   - type: 'custom:rgb-light-card'
+                     entity: light.fastled_ws2811_light_3
+                     justify: center
+                     size: 28
+                     colors:
+                       # Any option of the light.turn_on service can be used in each color
+                       - rgb_color:
+                             - 255
+                             - 127
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: white         
+                       - rgb_color:
+                             - 255
+                             - 127
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: center/100% url('/local/flame.png')
+                       - rgb_color:
+                             - 255
+                             - 127
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: center/120% url('/local/morning.png')          
+                       - rgb_color:
+                             - 255
+                             - 127
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: center/120% url('/local/evening.png')
+                       - rgb_color:
+                             - 255
+                             - 255
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: center/120% url('/local/night.png')
+            # - type: horizontal-stack
+            #   cards:                        
+            #   - type: vertical-stack
+            #     cards:                     
+            #      - type: "custom:button-card"
+            #       color_type: label-card
+            #       color: rgb(16, 41, 74)
+            #       name: Hallway
+            #       styles:
+            #         card:
+            #             - height: 20px
+            #         name:
+            #             # - font-weight: bold
+            #             - font-size: 15px
+            #             - letter-spacing: 0.01em
+            #             - justify-self: start
+            #             - padding-left: 10px
+            #           # - text-transform: uppercase  
+            #      - type: entities
+            #       #title: Entities card sample
+            #       show_header_toggle: false
+            #       entities:
+            #          - entity: light.fastled_ws2811_light_3
+            #           name: Ceiling Lights
+            # - type: vertical-stack
+            #   cards:                     
+            #      - type: "custom:button-card"
+            #       color_type: label-card
+            #       color: rgb(16, 41, 74)
+            #       name: Kitchen
+            #       styles:
+            #         card:
+            #             - height: 20px
+            #         name:
+            #             # - font-weight: bold
+            #             - font-size: 15px
+            #             - letter-spacing: 0.01em
+            #             - justify-self: start
+            #             - padding-left: 10px
+            #           # - text-transform: uppercase  
+            #      - type: entities
+            #       #title: Entities card sample
+            #       show_header_toggle: false
+            #       entities:
+            #          - entity: light.fastled_ws2811_light_3
+            #           name: Ceiling Lights                     
+             #  - type: "custom:button-card"
+             #    color_type: label-card
+             #    color: rgb(16, 41, 74)
+             #    name: Kitchen
+             #    styles:
+             #     card:
+             #        - height: 20px
+             #     name:
+             #        # - font-weight: bold
+             #        - font-size: 15px
+             #        - letter-spacing: 0.01em
+             #        - justify-self: start
+             #        - padding-left: 10px
+             #        # - text-transform: uppercase   
+             #  - type: entities
+             #    #title: Entities card sample
+             #    show_header_toggle: false
+             #    entities:
+             #     - entity: light.fastled_ws2811_light_3
+             #        name: Ceiling Lights
+            
+              - type: "custom:button-card"
+                color_type: label-card
+                color: rgb(16, 41, 74)
+                name: Garage
+                styles:
+                 card:
+                     - height: 20px
+                 name:
+                     # - font-weight: bold
+                     - font-size: 16px
+                     - letter-spacing: 0.02em
+                     - justify-self: center
+                     - padding-left: 10px
+                    # - text-transform: uppercase
+                    
+              - type: entities
+                #title: Entities card sample
+                show_header_toggle: false
+                entities:
+                  - entity: light.fastled_ws2811_light_3
+                    name: Ceiling Light
+            
+            
+            
+            
+            
+            
+                                              
+    #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+    ##############################  
+    #*#*#*#*#*#*#*#*#*#*#*#*  
+    ##################           *** SECOND Column ***
+    #*#*#*#*#*#*#*#*#*#*#*#*
+    ##############################
+    #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+      - type: horizontal-stack
+        cards:
+         - type: vertical-stack
+           cards:    
+        ################
+        ## Title Card ##
+        ################       
+              - type: "custom:button-card"
+                color_type: label-card
+                color: rgb(16, 41, 74)
+                name: Temperature
+                styles:
+                 card:
+                     - height: 20px
+                 name:
+                     # - font-weight: bold
+                     - font-size: 16px
+                     - letter-spacing: 0.02em
+                     - justify-self: center
+                     - padding-left: 10px
+                    # - text-transform: uppercase
+                    
+                    
+                    
+      - type: vertical-stack
+        cards:
+             - type: vertical-stack
+               cards:                    
+                 - type: custom:mini-graph-card
+                   name: Ground Floor Average
+                   icon: mdi:thermometer
+                   styles:
+                    name:
+                        # - font-weight: bold
+                        - font-size: 16px
+                        - letter-spacing: 0.02em
+                        - justify-self: center
+                        - padding-left: 10px
+                       # - text-transform: uppercase                  
+                   entities:
+                       - entity: sensor.processor_use
+                         name: Ground Floor Average        
+         # - type: vertical-stack
+         #  cards:    
+        ################
+        ## Title Card ##
+        ################      
+         # - type: vertical-stack
+         #  cards:                    
+             - type: horizontal-stack
+               cards:         
+
+                      # - text-transform: uppercase
+               #  - type: vertical-stack
+               #    cards:                
+                - type: custom:mini-graph-card
+                  name: Hallway
+                  icon: mdi:door
+                  styles:
+
+                   name:
+                     # - font-weight: bold
+                     - font-size: 16px
+                     - letter-spacing: 0.02em
+                     - justify-self: center
+                     - padding-left: 10px
+                    # - text-transform: uppercase                  
+                  entities:
+                      - entity: sensor.processor_use
+                        name: Hallway
+                - type: custom:mini-graph-card
+                  name: Snug
+                  icon: mdi:sofa
+                  entities:
+    
+                      - entity: sensor.cpu_temperature
+                        name: Hallway
+             - type: horizontal-stack
+               cards:         
+
+                      # - text-transform: uppercase
+               #  - type: vertical-stack
+               #    cards:                
+                - type: custom:mini-graph-card
+                  name: Kitchen
+                  icon: mdi:stove
+                  entities:
+                      - entity: sensor.processor_use
+                        name: Hallway
+                - type: custom:mini-graph-card
+                  name: Garage
+                  icon: mdi:garage
+                  entities:
+    
+                      - entity: sensor.cpu_temperature
+                        name: Hallway
+                        
+             - type: horizontal-stack
+               cards:         
+
+                      # - text-transform: uppercase
+               #  - type: vertical-stack
+               #    cards:                
+                - type: custom:mini-graph-card
+                  name: Outside Front
+                  icon: mdi:home
+                  entities:
+                      - entity: sensor.processor_use
+                        name: Hallway
+                - type: custom:mini-graph-card
+                  name: Outside Back
+                  icon: mdi:home-outline
+                  entities:
+    
+                      - entity: sensor.cpu_temperature
+                        name: Hallway    
+            #  - type: horizontal-stack
+            #   cards:                         
+            #      - type: custom:upcoming-media-card
+            #       title: TV Upcoming  
+            #       entity: sensor.sonarr_upcoming_media
+
+    
+
+    #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+    ##############################  
+    #*#*#*#*#*#*#*#*#*#*#*#*  
+    ##################           *** THIRD Column ***
+    #*#*#*#*#*#*#*#*#*#*#*#*
+    ##############################
+    #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*    
+                                    
+
+                        
+      - type: vertical-stack
+        cards:
+         - type: vertical-stack
+           cards:    
+        ################
+        ## Title Card ##
+        ################       
+              - type: "custom:button-card"
+                color_type: label-card
+                color: rgb(16, 41, 74)
+                name: Living Room
+                styles:
+                 card:
+                     - height: 20px
+                 name:
+                     # - font-weight: bold
+                     - font-size: 16px
+                     - letter-spacing: 0.02em
+                     - justify-self: center
+                     - padding-left: 10px
+                    # - text-transform: uppercase   
+              - type: horizontal-stack
+                cards:
+    
+                   - type: "custom:button-card"
+                     entity: switch.relay
+                     name: Floor Lamp
+                     styles:
+                       name:
+                        # - font-weight: bold
+                        - font-size: 12px
+                        - letter-spacing: 0.01em
+                        - padding-bottom: 10px                        
+                        #- text-transform: uppercase                   
+                     color_type: card
+                     color: rgb(76, 86, 106)
+                     entity_picture: /local/we.png
+                     show_entity_picture: true  
+                   - type: "custom:button-card"
+                     entity: switch.relay
+                     name: Corner Lamp
+                     styles:
+                       name:
+                        # - font-weight: bold
+                        - font-size: 12px
+                        - letter-spacing: 0.01em
+                        - padding-bottom: 10px                        
+                        #- text-transform: uppercase                   
+                     color_type: card
+                     color: rgb(76, 86, 106)
+                     entity_picture: /local/aespp.png
+                     show_entity_picture: true                  
+              - type: entities
+                entities:
+                 # Displays the light entity. It's optional
+                   - entity: light.fastled_ws2811_light_3
+                     name: TV Cabinet RGB 
+                   - type: 'custom:rgb-light-card'
+                     entity: light.fastled_ws2811_light_3
+                     justify: center
+                     colors:
+                       # Any option of the light.turn_on service can be used in each color
+                       - rgb_color:
+                             - 255
+                             - 127
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: center/100% url('/local/netflix.png')          
+                       - rgb_color:
+                             - 255
+                             - 127
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: center/100% url('/local/evening.png')
+                       - rgb_color:
+                             - 255
+                             - 255
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: '#ffffff' # Override icon color   
+                         
+                         
+              - type: "custom:button-card"
+                color_type: label-card
+                color: rgb(16, 41, 74)
+                name: Master Bedroom
+                styles:
+                 card:
+                     - height: 20px
+                 name:
+                     # - font-weight: bold
+                     - font-size: 16px
+                     - letter-spacing: 0.02em
+                     - justify-self: center
+                     - padding-left: 10px
+                    # - text-transform: uppercase       
+              - type: entities
+                entities:
+                 # Displays the light entity. It's optional
+                   - entity: light.fastled_ws2811_light_3
+                     name: Ceiling Lights 
+                   - type: 'custom:rgb-light-card'
+                     entity: light.fastled_ws2811_light_3
+                     justify: center
+                     size: 25                     
+                     colors:
+                       # Any option of the light.turn_on service can be used in each color
+                       - rgb_color:
+                             - 255
+                             - 127
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: center/100% url('/local/morning.png')          
+                       - rgb_color:
+                             - 255
+                             - 127
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: center/100% url('/local/evening.png')
+                       - rgb_color:
+                             - 255
+                             - 255
+                             - 255
+                         brightness: 220
+                         transition: 1
+                         icon_color: center/100% url('/local/night.png')    
+                       
+              - type: entities
+                #title: Entities card sample
+                show_header_toggle: false
+                entities:
+                  - entity: light.fastled_ws2811_light_3
+                    name: Wardrobe Lights
+                     # styles:
+                     #  name:
+                     #    # - font-weight: bold
+                     #    - font-size: 12px
+                     #    - letter-spacing: 0.01em
+                     #    - padding-bottom: 10px                        
+                     #    #- text-transform: uppercase                   
+                     # color_type: card
+                     # color: rgb(76, 86, 106)
+                     # entity_picture: /local/we.png
+                     # show_entity_picture: true                         
+                         
+         - type: horizontal-stack
+           cards:   
+           - type: vertical-stack
+             cards:   
+                   - type: "custom:button-card"
+                     color_type: label-card
+                     color: rgb(16, 41, 74)
+                     name: Left Bedside
+                     styles:
+
+                      name:
+                        # # - font-weight: bold
+                         - font-size: 15px
+                         - letter-spacing: 0.02em
+                         - justify-self: center
+                         - padding-left: 10px
+                        # - text-transform: uppercase              
+                   - type: "custom:button-card"
+                     entity: switch.relay
+                     name: Bed Lamp
+                     styles:
+                       name:
+                        # - font-weight: bold
+                        - font-size: 12px
+                        - letter-spacing: 0.01em
+                        - padding-bottom: 10px                        
+                        #- text-transform: uppercase                   
+                     color_type: card
+                     color: rgb(76, 86, 106)
+                     entity_picture: /local/tass.png
+                     show_entity_picture: true            
+                   - type: entities
+                     entities:
+                     # Displays the light entity. It's optional
+                       - entity: light.fastled_ws2811_light_3
+                         name: RGB 
+                       - type: 'custom:rgb-light-card'
+                         entity: light.fastled_ws2811_light_3
+                         justify: center
+                         size: 25                         
+                         colors:
+                           # Any option of the light.turn_on service can be used in each color
+                           - rgb_color:
+                             - 255
+                             - 127
+                             - 255
+                             brightness: 220
+                             transition: 1
+                             icon_color: center/100% url('/local/netflix.png')                            
+                           - rgb_color:
+                                 - 16
+                                 - 41
+                                 - 74
+                             brightness: 220
+                             transition: 1
+                             icon_color: rgb(16, 41, 74)
+                           - rgb_color:
+                                 - 255
+                                 - 255
+                                 - 255
+                             brightness: 220
+                             transition: 1
+                             icon_color: rgb(255, 255, 255)    
+                           - rgb_color:
+                                 - 68
+                                 - 142
+                                 - 87
+                             brightness: 220
+                             transition: 1
+                             icon_color: rgb(68, 142, 87)                              
+                             
+           - type: vertical-stack
+             cards:  
+              - type: "custom:button-card"
+                color_type: label-card
+                color: rgb(16, 41, 74)
+                name: Right Bedside
+                styles:
+
+                 name:
+                         # - font-weight: bold
+                         - font-size: 15px
+                         - letter-spacing: 0.02em
+                         - justify-self: center
+                         - padding-left: 10px
+                        # - text-transform: uppercase    
+              - type: "custom:button-card"
+                entity: switch.relay
+                name: Bed Lamp
+                styles:
+                 name:
+                        # - font-weight: bold
+                        - font-size: 12px
+                        - letter-spacing: 0.01em
+                        - padding-bottom: 10px                        
+                        #- text-transform: uppercase                   
+                color_type: card
+                color: rgb(76, 86, 106)
+                entity_picture: /local/tass.png
+                show_entity_picture: true                         
+              - type: entities
+                entities:
+                 # Displays the light entity. It's optional
+                   - entity: light.fastled_ws2811_light_3
+                     name: RGB 
+                   - type: 'custom:rgb-light-card'
+                     entity: light.fastled_ws2811_light_3
+                     justify: center
+                     size: 25                         
+                     colors:
+                        # Any option of the light.turn_on service can be used in each color
+                        - rgb_color:
+                             - 255
+                             - 127
+                             - 255
+                          brightness: 220
+                          transition: 1
+                          icon_color: center/100% url('/local/netflix.png')                         
+                        - rgb_color:
+                              - 16
+                              - 41
+                              - 74
+                          brightness: 220
+                          transition: 1
+                          icon_color: rgb(16, 41, 74)
+                        - rgb_color:
+                              - 255
+                              - 255
+                              - 255
+                          brightness: 220
+                          transition: 1
+                          icon_color: rgb(255, 255, 255)    
+                        - rgb_color:
+                              - 68
+                              - 142
+                              - 87
+                          brightness: 220
+                          transition: 1
+                          icon_color: rgb(68, 142, 87)     
+                          
+                         
+         - type: vertical-stack
+           cards:
+        ################
+        ## Title Card ##
+        ################       
+              - type: "custom:button-card"
+                color_type: label-card
+                color: rgb(16, 41, 74)
+                name: Office
+                styles:
+                 card:
+                     - height: 20px
+                 name:
+                     # - font-weight: bold
+                     - font-size: 16px
+                     - letter-spacing: 0.02em
+                     - justify-self: center
+                     - padding-left: 10px
+                    # - text-transform: uppercase       
+              - type: entities
+                entities:
+                 # Displays the light entity. It's optional
+                   - entity: light.fastled_ws2811_light_3
+                     name: Ceiling Lights 
+                   - type: 'custom:rgb-light-card'
+                     entity: light.fastled_ws2811_light_3
+                     justify: center
+                     size: 25                         
+                     colors:
+                        # Any option of the light.turn_on service can be used in each color
+                        - rgb_color:
+                              - 16
+                              - 41
+                              - 74
+                          brightness: 220
+                          transition: 1
+                          icon_color: rgb(16, 41, 74)
+                        - rgb_color:
+                              - 255
+                              - 255
+                              - 255
+                          brightness: 220
+                          transition: 1
+                          icon_color: rgb(255, 255, 255)    
+                        - rgb_color:
+                              - 68
+                              - 142
+                              - 87
+                          brightness: 220
+                          transition: 1
+                          icon_color: rgb(68, 142, 87)       
+                   - entity: light.fastled_ws2811_light_3
+                     name: Train RGB 
+                   - type: 'custom:rgb-light-card'
+                     entity: light.fastled_ws2811_light_3
+                     justify: center
+                     size: 25                         
+                     colors:
+                        # Any option of the light.turn_on service can be used in each color
+                        - rgb_color:
+                              - 16
+                              - 41
+                              - 74
+                          brightness: 220
+                          transition: 1
+                          icon_color: rgb(16, 41, 74)
+                        - rgb_color:
+                              - 255
+                              - 255
+                              - 255
+                          brightness: 220
+                          transition: 1
+                          icon_color: rgb(255, 255, 255)    
+                        - rgb_color:
+                              - 68
+                              - 142
+                              - 87
+                          brightness: 220
+                          transition: 1
+                          icon_color: rgb(68, 142, 87)           
+                         
+    #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+    ##############################  
+    #*#*#*#*#*#*#*#*#*#*#*#*  
+    ##################           *** FORTH Column ***
+    #*#*#*#*#*#*#*#*#*#*#*#*
+    ##############################
+    #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+    
+    
+      - type: vertical-stack
+        cards:
+         - type: vertical-stack
+           cards:    
+        ################
+        ## Title Card ##
+        ################       
+              - type: "custom:button-card"
+                color_type: label-card
+                color: rgb(16, 41, 74)
+                name: Temperature
+                styles:
+                 card:
+                     - height: 20px
+                 name:
+                     # - font-weight: bold
+                     - font-size: 16px
+                     - letter-spacing: 0.02em
+                     - justify-self: center
+                     - padding-left: 10px
+                    # - text-transform: uppercase
+      - type: vertical-stack
+        cards:
+             - type: vertical-stack
+               cards:                    
+                 - type: custom:mini-graph-card
+                   name: First Floor Average
+                   icon: mdi:thermometer
+                   styles:
+                    name:
+                        # - font-weight: bold
+                        - font-size: 16px
+                        - letter-spacing: 0.02em
+                        - justify-self: center
+                        - padding-left: 10px
+                       # - text-transform: uppercase                  
+                   entities:
+                       - entity: sensor.processor_use
+                         name: Hallway                     
+      - type: vertical-stack
+        cards:
+         # - type: vertical-stack
+         #  cards:    
+        ################
+        ## Title Card ##
+        ################      
+         # - type: vertical-stack
+         #  cards:                    
+             - type: horizontal-stack
+               cards:         
+
+                      # - text-transform: uppercase
+               #  - type: vertical-stack
+               #    cards:                
+                - type: custom:mini-graph-card
+                  name: Living Room
+                  icon: mdi:sofa
+                  styles:
+
+                   name:
+                     # - font-weight: bold
+                     - font-size: 16px
+                     - letter-spacing: 0.02em
+                     - justify-self: center
+                     - padding-left: 10px
+                    # - text-transform: uppercase                  
+                  entities:
+                      - entity: sensor.processor_use
+                        name: Hallway
+                - type: custom:mini-graph-card
+                  name: Guest Bedroom
+                  icon: mdi:bed-king
+                  entities:
+    
+                      - entity: sensor.cpu_temperature
+                        name: Hallway
+                        
+      - type: vertical-stack
+        cards:
+             - type: vertical-stack
+               cards:                    
+                 - type: custom:mini-graph-card
+                   name: Second Floor Average
+                   icon: mdi:thermometer
+                   styles:
+                    name:
+                        # - font-weight: bold
+                        - font-size: 16px
+                        - letter-spacing: 0.02em
+                        - justify-self: center
+                        - padding-left: 10px
+                       # - text-transform: uppercase                  
+                   entities:
+                       - entity: sensor.processor_use
+                         name: Hallway                          
+                        
+             - type: horizontal-stack
+               cards:         
+
+                      # - text-transform: uppercase
+               #  - type: vertical-stack
+               #    cards:                
+                - type: custom:mini-graph-card
+                  name: Master Bedroom
+                  icon: mdi:bed-king
+                  entities:
+                      - entity: sensor.processor_use
+                        name: Hallway
+                - type: custom:mini-graph-card
+                  name: Office
+                  icon: mdi:brain
+                  entities:
+    
+                      - entity: sensor.cpu_temperature
+                        name: Hallway
+                        
+             - type: horizontal-stack
+               cards:         
+
+                      # - text-transform: uppercase
+               #  - type: vertical-stack
+               #    cards:                
+                - type: custom:mini-graph-card
+                  name: Guest Bedroom
+                  icon: mdi:brain
+                  entities:
+                      - entity: sensor.processor_use
+                        name: Hallway
+                - type: custom:mini-graph-card
+                  name: Attic
+                  icon: mdi:brain
+                  entities:
+    
+                      - entity: sensor.cpu_temperature
+                        name: Hallway             
+                
+                        
+    #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+    ##############################  
+    #*#*#*#*#*#*#*#*#*#*#*#*  
+    ##################           *** FORTH Column ***
+    #*#*#*#*#*#*#*#*#*#*#*#*
+    ##############################
+    #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+
+    
+    
+                                                                        
