@@ -20,14 +20,27 @@ resources:
 - url: /local/custom_lovelace/flex-table-card/flex-table-card.js
   type: js
 - url: /local/custom_lovelace/monster-card/monster-card.js
+  type: js 
+- url: /local/custom_lovelace/spotify-card/spotify-card.js
+  type: module
+- url: /local/custom_lovelace/weather-card/weather-card.js
+  type: module
+- url: /local/custom_lovelace/button-card/button-card.js
+  type: module
+- url: /local/custom_lovelace/mini-graph-card/mini-graph-card-bundle.js?v=0.8.1
+  type: module
+- url: /local/custom_lovelace/rgb-light-card/card.js
+  type: module
+- url: /local/custom_lovelace/alarm_control_panel/alarm_control_panel-card.js
   type: js  
   
 title: SWAKES
 views:
   - !include lovelace/00_main.yaml
   - !include lovelace/10_sensors.yaml
-  - !include lovelace/20_security.yaml
-  - !include lovelace/30_network.yaml
+  #- !include lovelace/20_security.yaml
+  - !include lovelace/21_security.yaml
+ # - !include lovelace/30_network.yaml
   - !include lovelace/40_media.yaml
   - !include lovelace/50_system.yaml
   - !include lovelace/99_test.yaml
