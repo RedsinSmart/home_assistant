@@ -8,7 +8,7 @@ cards:
     column_num: 4
     cards:
        - type: entities
-         title: Info
+         title: Host
          show_header_toggle: false
          #column_width: calc(100% / n)
          #columns: 6
@@ -16,37 +16,33 @@ cards:
             - entity: sensor.time_date
             - entity: sensor.last_boot
               name: Last system boot
-       - type: entities
-         #title: Pi Status
-         icon: mdi:home
-         show_header_toggle: false
-         #column_width: calc(100% / n)
-         #columns: 6
+            - entity: sensor.rpi_power_status
+            - entity: sensor.ipv4_address_wlan0
+              name: LAN IP
+       - type: custom:mini-graph-card
+         name: CPU
+         icon: mdi:brain
          entities:
-            - sensor.processor_use
-            - sensor.memory_free
-            - sensor.disk_use_percent_home
-            - sensor.rpi_power_status
-       - type: entities
-         style: |
-           ha-card {
-             font-variant: small-caps;
-           }
-           .card-header {
-             font-size: 16px;
-           }
-         #title: Pi Status
-         icon: mdi:home
-         show_header_toggle: false
-         #column_width: calc(100% / n)
-         #columns: 6
+          - sensor.processor_use
+          - sensor.cpu_temperature
+       - type: custom:mini-graph-card
+         name: RAM
+
+         icon: mdi:memory
          entities:
-            - sensor.ipv4_address_eth0
-            - sensor.network_throughput_in_eth0
-            - sensor.network_throughput_out_eth0
+          - sensor.memory_use
+          - sensor.memory_free
+       - type: custom:mini-graph-card
+         name: Network
+         #icon: mdi:server
+         entities:
+            - entity: sensor.network_throughput_in_wlan0
+              name: Network In
+            - entity: sensor.network_throughput_out_wlan0
+              name: Network Out
        - break
        - type: entities
-         title: Info
+         title: HassIO
          show_header_toggle: false
          #column_width: calc(100% / n)
          #columns: 6
@@ -56,14 +52,29 @@ cards:
             - entity: sensor.hacs
               name: HACS
        - type: entities
-         title: HA Network
+         title: HA Infrastructure
          show_header_toggle: false
          #column_width: calc(100% / n)
          #columns: 6
          entities:
             - binary_sensor.swk_rfbridge
        - type: entities
-         title: HA Devices
+         title: HA Sensors (WiFi/LAN)
+         show_header_toggle: false
+         #column_width: calc(100% / n)
+         #columns: 6
+         entities:
+            - device_tracker.bedside_nabs
+            - binary_sensor.bedside_rgb_sam_status_2
+       - type: entities
+         title: HA Sensors (ZigBee)
+         show_header_toggle: false
+         #column_width: calc(100% / n)
+         #columns: 6
+         entities:
+            - binary_sensor.swk_rfbridge
+       - type: entities
+         title: HA Sensors (RF)
          show_header_toggle: false
          #column_width: calc(100% / n)
          #columns: 6
