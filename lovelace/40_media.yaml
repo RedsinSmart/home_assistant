@@ -9,20 +9,33 @@ cards:
     cards:
      ### Ground ###
        - type: custom:upcoming-media-card
-         title: TV Upcoming
+         title: false
          entity: sensor.sonarr_upcoming_media
+         image_style: fanart
+         accent_color: '#13274b'
+         #all_shadows: false
        - type: custom:upcoming-media-card
          title: Films Upcoming
          entity: sensor.radarr_upcoming_media
+         image_style: fanart
+         accent_color: '#13274b'         
        - type: custom:upcoming-media-card
          title: Recently Added
          entity: sensor.plex_recently_added
+         image_style: fanart
+         accent_color: '#13274b'         
+         
+        
+         
        - break
 ##############
 #
 #
 #
 #######################
+       - type: 'custom:spotify-card'
+         client_id: !secret spotify_clientid
+         limit: 5
        - type: glance
          title: Network Status
          column_width: calc(100% / n)
@@ -49,9 +62,29 @@ cards:
 
        - cards:
          - entities:
-              - binary_sensor.unifi_ckg2
-           image: /local/ckg2.png
-           #title: UniFi CKGen2+
+          # Displays the light entity. It's optional
+            - entity: light.fastled_ws2811_light_3
+              name: Bed RGB Lighting 
+            - type: 'custom:rgb-light-card'
+              entity: light.fastled_ws2811_light_3
+              justify: center
+              colors:
+                # Any option of the light.turn_on service can be used in each color
+                - rgb_color:
+                      - 255
+                      - 127
+                      - 255
+                  brightness: 220
+                  transition: 1
+                  icon_color: center/120% url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Netflix_icon.svg/611px-Netflix_icon.svg.png')
+                - rgb_color:
+                      - 255
+                      - 255
+                      - 255
+                  brightness: 220
+                  transition: 1
+                  icon_color: '#ffffff' # Override icon color  
+                  type: entities
            type: picture-glance
          - entities:
               - binary_sensor.unifi_usg
