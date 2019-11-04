@@ -1,522 +1,589 @@
 title: Home
 icon: mdi:home
-panel: true
-views:
- badges:
-      - binary_sensor.updater
-      - person.sam_wakefield
-      - sensor.network_out_eth0
-      - sensor.network_in_eth0
-      - sensor.ipv4_address_eth0
-      - sensor.disk_use_percent_home
-      - sensor.memory_free
-      - sensor.processor_use
-      - sensor.daylight
-      - sensor.transmission_started_torrents
-      - sensor.plex
-      - sensor.transmission_active_torrents
-      - sensor.transmission_completed_torrents
-      - sensor.transmission_status
-      - sensor.transmission_paused_torrents
-      - sensor.transmission_down_speed
-      - sensor.transmission_total_torrents
-      - sensor.transmission_up_speed
-      - sensor.unifi_gateway_3_packets_sent
-      - sensor.unifi_gateway_3_kbyte_sec_received
-      - sensor.unifi_gateway_3_packets_sec_sent
-      - sensor.unifi_gateway_3_packets_sec_received
-      - sensor.unifi_gateway_3_packets_received
-      - sensor.unifi_gateway_3_kbyte_sec_sent
-      - sensor.unifi_gateway_3_bytes_sent
-      - sensor.unifi_gateway_3_bytes_received
-      - sun.sun
 cards:
-  - type: custom:layout-card
-    layout: vertical
-    #max_width: [40%, 300px, 20%]
-    column_num: 3
-    cards:
-       - entity: weather.home 
-         current: true
-         details: false
-         forecast: true
-         type: custom:weather-card
-       - type: "custom:button-card"
-         color_type: label-card
-         color: rgb(16, 41, 74)
-         name: Travel
-         styles:
-          card:
-              - height: 20px
-          name:
-              - font-weight: bold
-              - font-size: 15px
-              - letter-spacing: 0.01em
-              - justify-self: start
-              - padding-left: 10px
-              - text-transform: uppercase
-       - type: glance
-         #title: Glance card sample
-         columns: 3
-         entities:
-              - entity: sensor.next_bus_to_nottingham
-                name: Next Bus
-              - entity: sensor.next_bus_route
-                name: Bus Number
-              - entity: sensor.next_bus_estimated
-                name: Scheduled
-       - type: glance
-         #title: Glance card sample
-         columns: 3
-         entities:
-              - entity: sensor.boots
-                name: Work
-              - entity: sensor.station_street
-                name: Town
-              - entity: sensor.hamilton
-                name: Family
-       - type: "custom:button-card"
-         color_type: label-card
-         color: rgb(16, 41, 74)
-         name: Shopping List
-         styles:
-          card:
-              - height: 20px
-          name:
-              - font-weight: bold
-              - font-size: 15px
-              - letter-spacing: 0.01em
-              - justify-self: start
-              - padding-left: 10px
-              - text-transform: uppercase              
-       - type: shopping-list
-         #title: Shopping List
-       - type: "custom:button-card"
-         color_type: label-card
-         color: rgb(16, 41, 74)
-         name: Calendar
-         styles:
-          card:
-              - height: 20px
-          name:
-              - font-weight: bold
-              - font-size: 15px
-              - letter-spacing: 0.01em
-              - justify-self: start
-              - padding-left: 10px
-              - text-transform: uppercase
-       - type: custom:atomic-calendar
-         #title: Calendar
-         enableModeChange: true
-         defaultMode: 2
-         CalEventIcon1Filter: birthday
-         CalEventIcon2Filter: waste,bills
-         entities:
-           - entity: #
-             type: icon1,icon2
-       - break
-       - cards:
-         - entities:
-           show_name: false
-           show_state: false
-           entity: binary_sensor.hp20
-           state_image:
-            "on": /local/home.png
-            "off": /local/away.png
-           type: picture-entity
-         - entities:
-           show_name: false
-           show_state: false         
-           entity: binary_sensor.nabsiphone
-           state_image:
-            "on": /local/nabs_home.png
-            "off": /local/nabs_away.png
-           type: picture-entity
-         type: horizontal-stack
-       - type: horizontal-stack
-         cards:
-          - type: "custom:button-card"
-            color_type: card
-            entity: binary_sensor.openclose_3
-            name: Android
-            state:
-             - value: "on"
-               color: red
-               icon: mdi:cellphone-android
-               styles:
-                 card:
-                  - animation: blink 2s ease infinite
-             - operator: default
-               color: #4c566a
-               icon: mdi:cellphone-android
-               styles:
-                   name:
-                    - font-weight: bold
-                    - font-size: 12px
-                    - letter-spacing: 0.01em
-                    - text-transform: uppercase 
-               
-          - type: "custom:button-card"
-            color_type: card
-            entity: binary_sensor.openclose_3
-            name: iPhone
-            state:
-             - value: "on"
-               color: red
-               icon: mdi:cellphone-iphone
-               styles:
-                 card:
-                  - animation: blink 2s ease infinite
-             - operator: default
-               color: #4c566a
-               icon: mdi:cellphone-iphone
-               styles:
-                   name:
-                    - font-weight: bold
-                    - font-size: 12px
-                    - letter-spacing: 0.01em
-                    - text-transform: uppercase                
-               
-          - type: "custom:button-card"
-            color_type: card
-            entity: binary_sensor.openclose_3
-            name: Cats
-            state:
-             - value: "on"
-               color: red
-               icon: mdi:cat
-               styles:
-                 card:
-                  - animation: blink 2s ease infinite
-             - operator: default
-               color: #4c566a
-               icon: mdi:cat
-               styles:
-                   name:
-                    - font-weight: bold
-                    - font-size: 12px
-                    - letter-spacing: 0.01em
-                    - text-transform: uppercase                
-               
-          - type: "custom:button-card"
-            color_type: card
-            entity: binary_sensor.openclose_3
-            name: Car
-            state:
-             - value: "on"
-               color: red
-               icon: mdi:car
-               styles:
-                 card:
-                  - animation: blink 2s ease infinite
-             - operator: default
-               color: #4c566a
-               icon: mdi:car
-               styles:
-                   name:
-                    - font-weight: bold
-                    - font-size: 12px
-                    - letter-spacing: 0.01em
-                    - text-transform: uppercase                
-               
-       - type: "custom:button-card"
-         color_type: label-card
-         color: rgb(16, 41, 74)
-         name: Who's Home
-         styles:
-          card:
-              - height: 20px
-          name:
-              - font-weight: bold
-              - font-size: 15px
-              - letter-spacing: 0.01em
-              - justify-self: start
-              - padding-left: 10px
-              - text-transform: uppercase              
-       - type: map
-         aspect_ratio: 21:9
-         default_zoom: 11
-         dark_mode: false
-         entities:
-          - zone.home
-          - device_tracker.swakes_hp20
+#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+##############################  
+#*#*#*#*#*#*#*#*#*#*#*#*  
+##################           *** First Column ***
+#*#*#*#*#*#*#*#*#*#*#*#*
+##############################
+#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 
-       - break
-       - type: custom:swipe-card
-         cards:
-              - entity: camera.uvc_g3_front
-                type: picture-entity
-                camera_view: live
-                show_state: false
-                show_name: false
-              - entity: camera.uvc_g3_back
-                type: picture-entity
-                camera_view: live
-                show_state: false
-                show_name: false
-              - entity: camera.uvc_g3_back_2
-                type: picture-entity
-                camera_view: live
-                show_state: false
-                show_name: false
-              - entity: camera.garage
-                type: picture-entity
-                camera_view: live
-                show_state: false
-                show_name: false
-       - type: vertical-stack
-         cards:
-              - type: "custom:button-card"
-                color_type: label-card
-                color: rgb(16, 41, 74)
-                name: Lights
-                styles:
-                  card:
-                    - height: 20px
-                  name:
+         - type: vertical-stack
+           cards:      
+
+           - type: vertical-stack
+             cards:                 
+                
+                   - type: "custom:button-card"
+                     color_type: label-card
+                     color: rgb(16, 41, 74)
+                     name: Weather
+                     styles:
+                      card:
+                       - height: 20px
+                      name:
+                       - font-weight: bold
+                       - font-size: 15px
+                       - letter-spacing: 0.01em
+                       - justify-self: start
+                       - padding-left: 10px
+                       ##- text-transform: uppercase 
+           
+           - type: vertical-stack
+             cards:            
+              - type: custom:layout-card
+                layout: vertical
+                #max_width: [40%, 300px, 20%]
+                column_num: 3
+                cards:
+                   - entity: weather.home 
+                     current: true
+                     details: false
+                     forecast: true
+                     type: custom:weather-card
+           
+           - type: vertical-stack
+             cards:                 
+                
+                   - type: "custom:button-card"
+                     color_type: label-card
+                     color: rgb(16, 41, 74)
+                     name: Travel
+                     styles:
+                      card:
+                       - height: 20px
+                      name:
+                       - font-weight: bold
+                       - font-size: 15px
+                       - letter-spacing: 0.01em
+                       - justify-self: start
+                       - padding-left: 10px
+                       ##- text-transform: uppercase  
+           - type: vertical-stack
+             cards: 
+                   - type: custom:banner-card
+                     background: "#4c566a"
+                     heading: false #"\U0001F68C Buses"
+                     row_size: 3
+                     entities:
+                       - entity: sensor.next_bus_to_nottingham
+                         name: Bus Arriving
+                       - entity: sensor.next_bus_route
+                         name: Bus Route                       
+                       - entity: sensor.next_bus_estimated
+                         name: Next Bus
+                   - type: custom:banner-card
+                     background: "#4c566a"
+                     heading: false #"\U0001F697 Car"
+                     row_size: 3
+                     entities:
+                       - sensor.boots
+                       - sensor.station_street
+                       - sensor.hamilton       
+                       
+                       
+                  #  Old Travel Glance Card #
+                               
+                  #  - type: glance
+                  #    #title: Glance card sample
+                  #    columns: 3
+                  #    entities:
+                  #        - entity: sensor.next_bus_to_nottingham
+                  #           name: Next Bus
+                  #        - entity: sensor.next_bus_route
+                  #           name: Bus Number
+                  #        - entity: sensor.next_bus_estimated
+                  #           name: Scheduled
+                  #  - type: glance
+                  #    #title: Glance card sample
+                  #    columns: 3
+                  #    entities:
+                  #        - entity: sensor.boots
+                  #           name: Work
+                  #        - entity: sensor.station_street
+                  #           name: Town
+                  #        - entity: sensor.hamilton
+                  #           name: Family  
+                  
+                  #                          #
+                  
+                  
+                   - type: "custom:button-card"
+                     color_type: label-card
+                     color: rgb(16, 41, 74)
+                     name: Shopping List
+                     styles:
+                      card:
+                       - height: 20px
+                      name:
+                       - font-weight: bold
+                       - font-size: 15px
+                       - letter-spacing: 0.01em
+                       - justify-self: start
+                       - padding-left: 10px              
+                   - type: shopping-list
+                     #title: Shopping List
+                   - type: "custom:button-card"
+                     color_type: label-card
+                     color: rgb(16, 41, 74)
+                     name: Calendar
+                     styles:
+                      card:
+                       - height: 20px
+                      name:
+                       - font-weight: bold
+                       - font-size: 15px
+                       - letter-spacing: 0.01em
+                       - justify-self: start
+                       - padding-left: 10px
+                   - type: custom:atomic-calendar
+                     #title: Calendar
+                     enableModeChange: true
+                     defaultMode: 2
+                     CalEventIcon1Filter: birthday
+                     CalEventIcon2Filter: waste,bills
+                     entities:
+                       - entity: samandnabz_gmail_com
+                         type: icon1,icon2                            
+                                              
+#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+##############################  
+#*#*#*#*#*#*#*#*#*#*#*#*  
+##################           *** SECOND Column ***
+#*#*#*#*#*#*#*#*#*#*#*#*
+##############################
+#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+
+
+ 
+    
+         - type: vertical-stack
+           cards:     
+             - type: vertical-stack
+               cards:                 
+                
+                   - type: "custom:button-card"
+                     color_type: label-card
+                     color: rgb(16, 41, 74)
+                     name: Who's Home
+                     styles:
+                      card:
+                       - height: 20px
+                      name:
+                       - font-weight: bold
+                       - font-size: 15px
+                       - letter-spacing: 0.01em
+                       - justify-self: start
+                       - padding-left: 10px
+                       ##- text-transform: uppercase               
+             - type: horizontal-stack
+               cards:              
+                - type: picture-entity
+                  show_name: false
+                  show_state: false
+                  entity: binary_sensor.hp20
+                  state_image:
+                     "on": /local/home.png
+                     "off": /local/away.png
+                - type: picture-entity
+                  show_name: false
+                  show_state: false
+                  entity: binary_sensor.hp20
+                  state_image:
+                     "on": /local/nabs_home.png
+                     "off": /local/nabs_away.png
+             
+             
+             - type: horizontal-stack
+               cards:
+                - type: "custom:button-card"
+                  color_type: card
+                  entity: binary_sensor.hp20
+                  name: Android
+                  state:
+                   - value: "on"
+                     color: rgb(76, 86, 106)
+                     icon: mdi:cellphone-android
+                     styles:
+                       icon:
+                        - color: rgb(86, 160, 238)
+                       name:
+                        - font-weight: bold
+                        - font-size: 12px
+                        - letter-spacing: 0.01em
+                          ##- text-transform: uppercase                         
+                   - operator: default
+                     color: #4c566a
+                     icon: mdi:cellphone-android
+                     styles:
+                         name:
+                          - font-weight: bold
+                          - font-size: 12px
+                          - letter-spacing: 0.01em
+                          ##- text-transform: uppercase 
+                     
+                - type: "custom:button-card"
+                  color_type: card
+                  entity: binary_sensor.nabsiphone
+                  name: iPhone
+                  state:
+                   - value: "on"
+                     color: rgb(76, 86, 106)
+                     icon: mdi:cellphone-iphone
+                     styles:
+                       icon:
+                        - color: rgb(86, 160, 238)
+                       name:
+                        - font-weight: bold
+                        - font-size: 12px
+                        - letter-spacing: 0.01em
+                          ##- text-transform: uppercase                         
+                   - operator: default
+                     color: #4c566a
+                     icon: mdi:cellphone-iphone
+                     styles:
+                         name:
+                          - font-weight: bold
+                          - font-size: 12px
+                          - letter-spacing: 0.01em
+                          ##- text-transform: uppercase               
+                     
+                - type: "custom:button-card"
+                  color_type: card
+                  entity: binary_sensor.openclose_3
+                  name: Cats
+                  state:
+                   - value: "on"
+                     color: red
+                     icon: mdi:cat
+                     styles:
+                       card:
+                        - animation: blink 2s ease infinite
+                   - operator: default
+                     color: #4c566a
+                     icon: mdi:cat
+                     styles:
+                         name:
+                          - font-weight: bold
+                          - font-size: 12px
+                          - letter-spacing: 0.01em
+                         ##- text-transform: uppercase                
+                     
+                - type: "custom:button-card"
+                  color_type: card
+                  entity: binary_sensor.openclose_3
+                  name: Car
+                  state:
+                   - value: "on"
+                     color: red
+                     icon: mdi:car
+                     styles:
+                       card:
+                        - animation: blink 2s ease infinite
+                   - operator: default
+                     color: #4c566a
+                     icon: mdi:car
+                     styles:
+                         name:
+                          - font-weight: bold
+                          - font-size: 12px
+                          - letter-spacing: 0.01em
+                          ##- text-transform: uppercase                
+                     
+             
+             - type: map
+               aspect_ratio: 21:9
+               default_zoom: 11
+               dark_mode: true
+               entities:
+                - zone.home
+                - device_tracker.swakes_hp20                
+
+#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+##############################  
+#*#*#*#*#*#*#*#*#*#*#*#*  
+##################           *** THIRD Column ***
+#*#*#*#*#*#*#*#*#*#*#*#*
+##############################
+#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*  
+
+
+         - type: vertical-stack
+           cards:          
+             - type: custom:swipe-card
+               cards:
+                    - entity: camera.uvc_g3_front
+                      type: picture-entity
+                      camera_view: live
+                      show_state: false
+                      show_name: false
+                    - entity: camera.uvc_g3_back
+                      type: picture-entity
+                      camera_view: live
+                      show_state: false
+                      show_name: false
+                    - entity: camera.uvc_g3_back_2
+                      type: picture-entity
+                      camera_view: live
+                      show_state: false
+                      show_name: false
+                    - entity: camera.garage
+                      type: picture-entity
+                      camera_view: live
+                      show_state: false
+                      show_name: false
+             - type: vertical-stack
+               cards:
+                    - type: "custom:button-card"
+                      color_type: label-card
+                      color: rgb(16, 41, 74)
+                      name: Lights
+                      styles:
+                        card:
+                          - height: 20px
+                        name:
+                          - font-weight: bold
+                          - font-size: 15px
+                          - letter-spacing: 0.01em
+                          - justify-self: start
+                          - padding-left: 10px
+                          #- text-transform: uppercase
+                    - type: horizontal-stack
+                      cards:
+                      - type: "custom:button-card"
+                        entity: switch.relay
+                        name: Hallway
+                        styles:
+                         name:
+                          - font-weight: bold
+                          - font-size: 12px
+                          - letter-spacing: 0.01em
+                          #- text-transform: uppercase                   
+                        color_type: card
+                        color: rgb(76, 86, 106)
+                        icon: mdi:home
+                      - type: "custom:button-card"
+                        entity: switch.relay
+                        name: Kitchen
+                        styles:
+                         name:
+                          - font-weight: bold
+                          - font-size: 12px
+                          - letter-spacing: 0.01em
+                          #- text-transform: uppercase                   
+                        color_type: card
+                        color: rgb(76, 86, 106)
+                        icon: mdi:stove
+                      - type: "custom:button-card"
+                        entity: switch.relay
+                        name: Living Room
+                        styles:
+                         name:
+                          - font-weight: bold
+                          - font-size: 12px
+                          - letter-spacing: 0.01em
+                          #- text-transform: uppercase                   
+                        color_type: card
+                        color: rgb(76, 86, 106)
+                        icon: mdi:sofa
+                      - type: "custom:button-card"
+                        entity: switch.relay
+                        name: Bedroom
+                        styles:
+                         name:
+                          - font-weight: bold
+                          - font-size: 12px
+                          - letter-spacing: 0.01em
+                          #- text-transform: uppercase                   
+                        color_type: card
+                        color: rgb(76, 86, 106)
+                        icon: mdi:bed-king
+             - type: vertical-stack
+               cards:
+                    - type: "custom:button-card"
+                      color_type: label-card
+                      color: rgb(16, 41, 74)
+                      name: Scenes
+                      styles:
+                        card:
+                          - height: 20px
+                        name:
+                          - font-weight: bold
+                          - font-size: 15px
+                          - letter-spacing: 0.01em
+                          - justify-self: start
+                          - padding-left: 10px
+                          #- text-transform: uppercase
+                    - type: horizontal-stack
+                      cards:
+                      - type: "custom:button-card"
+                        entity: switch.relay
+                        name: Wake Up
+                        styles:
+                         name:
+                          - font-weight: bold
+                          - font-size: 12px
+                          - letter-spacing: 0.01em
+                          #- text-transform: uppercase
+                        color_type: card
+                        color: rgb(76, 86, 106)
+                        icon: mdi:weather-sunset-up
+                      - type: "custom:button-card"
+                        entity: switch.relay
+                        name: Bedtime
+                        styles:
+                         name:
+                          - font-weight: bold
+                          - font-size: 12px
+                          - letter-spacing: 0.01em
+                          #- text-transform: uppercase                  
+                        color_type: card
+                        color: rgb(76, 86, 106)
+                        icon: mdi:sleep
+                      - type: "custom:button-card"
+                        entity: switch.relay
+                        name: Heating
+                        styles:
+                         name:
+                          - font-weight: bold
+                          - font-size: 12px
+                          - letter-spacing: 0.01em
+                          #- text-transform: uppercase                  
+                        color_type: card
+                        color: rgb(76, 86, 106)
+                        icon: mdi:radiator
+                      - type: "custom:button-card"
+                        entity: switch.relay
+                        name: Lock Down
+                        styles:
+                         name:
+                          - font-weight: bold
+                          - font-size: 12px
+                          - letter-spacing: 0.01em
+                          #- text-transform: uppercase                  
+                        color_type: card
+                        color: rgb(76, 86, 106)
+                        icon: mdi:door-closed-lock
+                    - type: horizontal-stack
+                      cards:
+                      - type: "custom:button-card"
+                        entity: switch.relay
+                        name: Kitchen
+                        styles:
+                         name:
+                          - font-weight: bold
+                          - font-size: 12px
+                          - letter-spacing: 0.01em
+                          #- text-transform: uppercase
+                        color_type: card
+                        color: rgb(76, 86, 106)
+                        icon: mdi:cast-audio
+                      - type: "custom:button-card"
+                        entity: switch.relay
+                        name: Netflix
+                        styles:
+                         name:
+                          - font-weight: bold
+                          - font-size: 12px
+                          - letter-spacing: 0.01em
+                          #- text-transform: uppercase                  
+                        color_type: card
+                        color: rgb(76, 86, 106)
+                        icon: mdi:netflix
+                      - type: "custom:button-card"
+                        entity: switch.relay
+                        name: PlayStation
+                        styles:
+                         name:
+                          - font-weight: bold
+                          - font-size: 12px
+                          - letter-spacing: 0.01em
+                          #- text-transform: uppercase                  
+                        color_type: card
+                        color: rgb(76, 86, 106)
+                        icon: mdi:playstation
+                      - type: "custom:button-card"
+                        entity: switch.relay
+                        name: Bedroom
+                        styles:
+                         name:
+                          - font-weight: bold
+                          - font-size: 12px
+                          - letter-spacing: 0.01em
+                          #- text-transform: uppercase                  
+                        color_type: card
+                        color: rgb(76, 86, 106)
+                        icon: mdi:bed-king   
+             - type: "custom:button-card"
+               color_type: label-card
+               color: rgb(16, 41, 74)
+               name: Status
+               styles:
+                card:
+                 - height: 20px
+                name:
                     - font-weight: bold
                     - font-size: 15px
                     - letter-spacing: 0.01em
                     - justify-self: start
                     - padding-left: 10px
-                    - text-transform: uppercase
-              - type: horizontal-stack
-                cards:
+                    #- text-transform: uppercase         
+             - type: horizontal-stack
+               cards:
                 - type: "custom:button-card"
-                  entity: switch.relay
-                  name: Hallway
-                  styles:
-                   name:
-                    - font-weight: bold
-                    - font-size: 12px
-                    - letter-spacing: 0.01em
-                    - text-transform: uppercase                   
                   color_type: card
-                  color: rgb(66, 134, 244)
-                  icon: mdi:home
+                  entity: binary_sensor.openclose_3
+                  name: Security
+                  state:
+                   - value: "on"
+                     color: red
+                     icon: mdi:alert
+                     styles:
+                       card:
+                        - animation: blink 2s ease infinite
+                   - operator: default
+                     color: "#353c4a"
+                     icon: mdi:shield-check
                 - type: "custom:button-card"
-                  entity: switch.relay
-                  name: Kitchen
-                  styles:
-                   name:
-                    - font-weight: bold
-                    - font-size: 12px
-                    - letter-spacing: 0.01em
-                    - text-transform: uppercase                   
                   color_type: card
-                  color: rgb(66, 134, 244)
-                  icon: mdi:stove
+                  entity: binary_sensor.openclose_3
+                  name: Fire
+                  state:
+                   - value: "on"
+                     color: red
+                     icon: mdi:alert
+                     styles:
+                       card:
+                        - animation: blink 2s ease infinite
+                   - operator: default
+                     color: "#353c4a"
+                     icon: mdi:shield-check
                 - type: "custom:button-card"
-                  entity: switch.relay
-                  name: Living Room
-                  styles:
-                   name:
-                    - font-weight: bold
-                    - font-size: 12px
-                    - letter-spacing: 0.01em
-                    - text-transform: uppercase                   
                   color_type: card
-                  color: rgb(66, 134, 244)
-                  icon: mdi:sofa
+                  entity: binary_sensor.openclose_3
+                  name: Water
+                  state:
+                   - value: "on"
+                     color: red
+                     icon: mdi:alert
+                     styles:
+                       card:
+                        - animation: blink 2s ease infinite
+                   - operator: default
+                     color: "#353c4a"
+                     icon: mdi:shield-check
                 - type: "custom:button-card"
-                  entity: switch.relay
-                  name: Bedroom
-                  styles:
-                   name:
-                    - font-weight: bold
-                    - font-size: 12px
-                    - letter-spacing: 0.01em
-                    - text-transform: uppercase                   
                   color_type: card
-                  color: rgb(66, 134, 244)
-                  icon: mdi:bed-king
-       - type: vertical-stack
-         cards:
-              - type: "custom:button-card"
-                color_type: label-card
-                color: rgb(16, 41, 74)
-                name: Scenes
-                styles:
-                  card:
-                    - height: 20px
-                  name:
-                    - font-weight: bold
-                    - font-size: 15px
-                    - letter-spacing: 0.01em
-                    - justify-self: start
-                    - padding-left: 10px
-                    - text-transform: uppercase
-              - type: horizontal-stack
-                cards:
-                - type: "custom:button-card"
-                  entity: switch.relay
-                  name: Wake Up
-                  styles:
-                   name:
-                    - font-weight: bold
-                    - font-size: 12px
-                    - letter-spacing: 0.01em
-                    - text-transform: uppercase
-                  color_type: card
-                  color: rgb(66, 134, 244)
-                  icon: mdi:weather-sunset-up
-                - type: "custom:button-card"
-                  entity: switch.relay
-                  name: Bedtime
-                  styles:
-                   name:
-                    - font-weight: bold
-                    - font-size: 12px
-                    - letter-spacing: 0.01em
-                    - text-transform: uppercase                  
-                  color_type: card
-                  color: rgb(66, 134, 244)
-                  icon: mdi:sleep
-                - type: "custom:button-card"
-                  entity: switch.relay
-                  name: Heating
-                  styles:
-                   name:
-                    - font-weight: bold
-                    - font-size: 12px
-                    - letter-spacing: 0.01em
-                    - text-transform: uppercase                  
-                  color_type: card
-                  color: rgb(66, 134, 244)
-                  icon: mdi:radiator
-                - type: "custom:button-card"
-                  entity: switch.relay
-                  name: Lock Down
-                  styles:
-                   name:
-                    - font-weight: bold
-                    - font-size: 12px
-                    - letter-spacing: 0.01em
-                    - text-transform: uppercase                  
-                  color_type: card
-                  color: rgb(66, 134, 244)
-                  icon: mdi:door-closed-lock
-              - type: horizontal-stack
-                cards:
-                - type: "custom:button-card"
-                  entity: switch.relay
-                  name: Kitchen
-                  styles:
-                   name:
-                    - font-weight: bold
-                    - font-size: 12px
-                    - letter-spacing: 0.01em
-                    - text-transform: uppercase
-                  color_type: card
-                  color: rgb(66, 134, 244)
-                  icon: mdi:cast-audio
-                - type: "custom:button-card"
-                  entity: switch.relay
-                  name: Netflix
-                  styles:
-                   name:
-                    - font-weight: bold
-                    - font-size: 12px
-                    - letter-spacing: 0.01em
-                    - text-transform: uppercase                  
-                  color_type: card
-                  color: rgb(66, 134, 244)
-                  icon: mdi:netflix
-                - type: "custom:button-card"
-                  entity: switch.relay
-                  name: PlayStation
-                  styles:
-                   name:
-                    - font-weight: bold
-                    - font-size: 12px
-                    - letter-spacing: 0.01em
-                    - text-transform: uppercase                  
-                  color_type: card
-                  color: rgb(66, 134, 244)
-                  icon: mdi:playstation
-                - type: "custom:button-card"
-                  entity: switch.relay
-                  name: Bedroom
-                  styles:
-                   name:
-                    - font-weight: bold
-                    - font-size: 12px
-                    - letter-spacing: 0.01em
-                    - text-transform: uppercase                  
-                  color_type: card
-                  color: rgb(66, 134, 244)
-                  icon: mdi:bed-king   
-       - type: "custom:button-card"
-         color_type: label-card
-         color: rgb(16, 41, 74)
-         name: Status
-         styles:
-          card:
-           - height: 20px
-          name:
-              - font-weight: bold
-              - font-size: 15px
-              - letter-spacing: 0.01em
-              - justify-self: start
-              - padding-left: 10px
-              - text-transform: uppercase         
-       - type: horizontal-stack
-         cards:
-          - type: "custom:button-card"
-            color_type: card
-            entity: binary_sensor.openclose_3
-            name: Security
-            state:
-             - value: "on"
-               color: red
-               icon: mdi:alert
-               styles:
-                 card:
-                  - animation: blink 2s ease infinite
-             - operator: default
-               color: #4c566a
-               icon: mdi:shield-check
-          - type: "custom:button-card"
-            color_type: card
-            entity: binary_sensor.openclose_3
-            name: Fire
-            state:
-             - value: "on"
-               color: red
-               icon: mdi:alert
-               styles:
-                 card:
-                  - animation: blink 2s ease infinite
-             - operator: default
-               color: #4c566a
-               icon: mdi:shield-check
-          - type: "custom:button-card"
-            color_type: card
-            entity: binary_sensor.openclose_3
-            name: Water
-            state:
-             - value: "on"
-               color: red
-               icon: mdi:alert
-               styles:
-                 card:
-                  - animation: blink 2s ease infinite
-             - operator: default
-               color: #4c566a
-               icon: mdi:shield-check
-          - type: "custom:button-card"
-            color_type: card
-            entity: binary_sensor.openclose_3
-            name: Network
-            state:
-             - value: "on"
-               color: red
-               icon: mdi:alert
-               styles:
-                 card:
-                  - animation: blink 2s ease infinite
-             - operator: default
-               color: #4c566a
-               icon: mdi:shield-check
-
-       - break
+                  entity: binary_sensor.openclose_3
+                  name: Network
+                  state:
+                   - value: "on"
+                     color: red
+                     icon: mdi:alert
+                     styles:
+                       card:
+                        - animation: blink 2s ease infinite
+                   - operator: default
+                     color: "#353c4a"
+                     icon: mdi:shield-check
